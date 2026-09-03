@@ -1,0 +1,39 @@
+.services__item::before {
+    content: "";
+
+    background: rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.services__item .services__img-box:before {
+    transition: all 1.5s ease-in-out;
+}
+.services__item:hover .services__img-box:before {
+    transition: all 1.5s ease-in-out;
+    transform: rotate(410deg);
+}
+.services__item:after {
+    content: url("../../images/Services/line.png");
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.services__img-box {
+    position: relative;
+    width: 35px;
+    height: 35px;
+  
+}
+.services__img-box::before {
+    content: " ";
+    transform: rotate(-45deg);
+    position: absolute;
+    padding: 35px;
+    border: 1px solid #6b6375;
+
+}

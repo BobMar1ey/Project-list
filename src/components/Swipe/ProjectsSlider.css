@@ -1,0 +1,5 @@
+.swiper-wrapper,
+.projects-swiper-top .swiper-wrapper,
+.projects-swiper-bottom .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
