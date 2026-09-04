@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
@@ -11,7 +10,7 @@ export default function Swipe({ arrProjects = [] }) {
   const secondRowProjects = arrProjects.slice(half);
 
   return (
-<section className="w-full py-12 md:py-21 bg-[#171719]">
+<section id="portfolios" className="w-full py-12 md:py-21 bg-[#171719] scroll-mt-24">
   <div className="max-w-[1240px] mx-auto px-4 mb-8 w-full flex justify-center ">
     <div className="max-w-[440px]">
       <h3 className="uppercase text-[clamp(11px,1.5vw,14px)] text-gray-400 tracking-[clamp(1px,0.1vw,2px)]  mb-[0.5em]">Portfolios</h3>
@@ -22,7 +21,6 @@ export default function Swipe({ arrProjects = [] }) {
   </div>
 
   <div className="relative w-full overflow-hidden pt-[32px] flex flex-col gap-[30px]">
-    {/* КНОПКА ПОВЕРХ СЛАЙДЕРОВ */}
     <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
       <a
         href="#"
@@ -32,7 +30,6 @@ export default function Swipe({ arrProjects = [] }) {
       </a>
     </div>
 
-    {/* ПЕРВАЯ СТРОКА */}
     <Swiper
       modules={[Autoplay]}
       direction="horizontal"
@@ -42,7 +39,7 @@ export default function Swipe({ arrProjects = [] }) {
       autoplay={{
         delay: 0,
         disableOnInteraction: false,
-        reverseDirection: false, // Влево
+        reverseDirection: false,
       }}
       slidesPerView={1.2}
       spaceBetween={32}
@@ -61,7 +58,6 @@ export default function Swipe({ arrProjects = [] }) {
       ))}
     </Swiper>
 
-    {/* ВТОРАЯ СТРОКА */}
     <Swiper
       modules={[Autoplay]}
       direction="horizontal"
@@ -71,7 +67,7 @@ export default function Swipe({ arrProjects = [] }) {
       autoplay={{
         delay: 0,
         disableOnInteraction: false,
-        reverseDirection: true, // Вправо
+        reverseDirection: true,
       }}
       slidesPerView={1.2}
       spaceBetween={32}
@@ -81,21 +77,13 @@ export default function Swipe({ arrProjects = [] }) {
       }}
       className="projects-swiper-bottom w-full"
     >
-      {secondRowProjects.length > 0
-        ? secondRowProjects.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div className="w-full h-[269px] bg-[#16171d] rounded-[12px] border border-white/10 overflow-hidden opacity-50 hover:opacity-100 transition-opacity duration-300">
-                <img src={item.img} alt="" className="w-full h-full object-cover" />
-              </div>
-            </SwiperSlide>
-          ))
-        : firstRowProjects.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div className="w-full h-[269px] bg-[#16171d] rounded-[12px] border border-white/10 overflow-hidden opacity-50 hover:opacity-100 transition-opacity duration-300">
-                <img src={item.img} alt="" className="w-full h-full object-cover" />
-              </div>
-            </SwiperSlide>
-          ))}
+      {secondRowProjects.map((item, index) => (
+        <SwiperSlide key={index}>
+          <div className="w-full h-[269px] bg-[#16171d] rounded-[12px] border border-white/10 overflow-hidden opacity-50 hover:opacity-100 transition-opacity duration-300">
+            <img src={item.img} alt="" className="w-full h-full object-cover" />
+          </div>
+        </SwiperSlide>
+      ))}
     </Swiper>
   </div>
 </section>

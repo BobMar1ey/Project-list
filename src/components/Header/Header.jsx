@@ -1,9 +1,6 @@
 import "./Header.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../images/Header/logo.svg";
-import Call from "../../images/Header/call.png";
-import Ping from "../../images/Header/ping.png";
-import Send from "../../images/Header/send.png";
 import Youtube from "../../images/Header/youtube.png";
 import Telegram from "../../images/Header/telegram.png";
 import Instagram from "../../images/Header/instagram.png";
@@ -23,9 +20,7 @@ export default function Header() {
   }, []);
   return (
     <header className="flex flex-col h-[108px] justify-between px-[10px] max-w-[1160px] w-full">
-      {isMobile ? (
-        ""
-      ) : (
+      {isMobile ? null : (
         <div className="flex justify-between h-full items-center">
           <div className="flex gap-3">
             <a
@@ -133,17 +128,15 @@ export default function Header() {
         >
           Discuss for Projects
         </a>
-        {isMobile ? (
+        {isMobile && (
           <div
             className={`header__burger ${burger ? "active" : ""}`}
-            onClick={() => setBurger(() => !burger)}
+            onClick={() => setBurger(!burger)}
           >
             <span></span>
             <span></span>
             <span></span>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </header>

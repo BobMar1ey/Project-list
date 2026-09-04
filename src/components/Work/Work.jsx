@@ -1,5 +1,5 @@
 import Arrow from "../../images/Work/Arrow.png";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Work.css";
 export default function Work() {
   let [isTablet, setTablet] = useState(window.innerWidth < 1023);
@@ -41,7 +41,7 @@ export default function Work() {
                 alt="arrow"
               />
             </div>
-            <div className="work__item w-[clamp(100px,15vw,184px)] h-[clamp(100px,15vw,184px)] rounded-[12px] border-[1px] border-dashed border-white/40 ] flex items-center justify-center relative rotate-[-45deg]">
+            <div className="work__item w-[clamp(100px,15vw,184px)] h-[clamp(100px,15vw,184px)] rounded-[12px] border-[1px] border-dashed border-white/40 flex items-center justify-center relative rotate-[-45deg]">
               <div className=" w-[clamp(80px,12vw,145px)] h-[clamp(80px,12vw,145px)]  rounded-[12px] border-[1px] border-solid border-white/60  flex items-center justify-center">
                 <span className="rotate-[45deg] text-[clamp(12px,2vw,18px)]">Define</span>
               </div>

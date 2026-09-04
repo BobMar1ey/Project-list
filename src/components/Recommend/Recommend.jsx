@@ -1,4 +1,3 @@
-import React from "react";
 import "./Recommend.css";
 
 import Signature from "../../images/Recommend/signature.png";

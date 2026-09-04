@@ -1,10 +1,7 @@
-import React from "react";
 import instagram from "../../images/Footer/in.svg";
 import facebook from "../../images/Footer/f.svg";
 import youtube from "../../images/Footer/y.svg";
 import twitter from "../../images/Footer/t.svg";
-import logo from "../../images/Footer/logo.svg";
-
 import call from "../../images/Footer/call.svg";
 import send from "../../images/Footer/send.svg";
 import location from "../../images/Footer/location.svg";
@@ -13,7 +10,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <footer className="footer w-full flex justify-center">
-      <div className="container w-full max-w-[1180px] w-full px-[20px]">
+      <div className="container w-full max-w-[1180px] px-[20px]">
         <div className="flex items-center justify-between  mb-[27px] flex-wrap flex-col md:flex-row gap-[20px] ">
           <div className="max-w-[289px] text-start">
             <h2 className=" pl-[30px] text-white text-[16px] font-bold footer__logo relative mb-[23px] inline-block">

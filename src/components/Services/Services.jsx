@@ -1,4 +1,3 @@
-import React from "react";
 import "./Services.css";
 import One from "../../images/Services/one.svg";
 import Two from "../../images/Services/two.svg";
