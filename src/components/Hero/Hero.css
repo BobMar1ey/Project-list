@@ -1,12 +1,20 @@
+.Hero {
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  margin-top: -108px;
+  padding-top: 108px;
+  box-sizing: border-box;
+}
+
 .Hero::before {
   content: "";
   position: absolute;
-  inset: 80px 0 auto;
-  height: 420px;
+  inset: 0;
   background: radial-gradient(
-    ellipse at 70% 40%,
-    rgba(25, 75, 253, 0.18),
-    transparent 60%
+    ellipse at 72% 48%,
+    rgba(25, 75, 253, 0.2),
+    transparent 62%
   );
   pointer-events: none;
 }

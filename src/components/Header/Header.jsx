@@ -19,7 +19,7 @@ export default function Header() {
     };
   }, []);
   return (
-    <header className="flex flex-col h-[108px] justify-between px-[10px] max-w-[1160px] w-full">
+    <header className="relative z-20 flex h-[108px] w-full max-w-[1160px] flex-col justify-between bg-[#171719] px-[10px]">
       {isMobile ? null : (
         <div className="flex justify-between h-full items-center">
           <div className="flex gap-3">

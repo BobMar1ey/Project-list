@@ -31,24 +31,21 @@ export default function Hero() {
   }, [open]);
 
   return (
-    <section
-      id="home"
-      className="Hero relative w-full scroll-mt-[108px] overflow-hidden px-[20px] py-[48px] md:pb-[80px]"
-    >
-      <div className="relative z-10 mx-auto grid max-w-[1160px] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,460px)]">
+    <section id="home" className="Hero relative z-0 w-full overflow-hidden">
+      <div className="relative z-10 mx-auto grid h-full w-full max-w-[1160px] items-center gap-6 px-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:gap-10 lg:px-8">
         <div className="max-w-[620px] text-center lg:text-start">
-          <h1 className="mb-[22px] text-[clamp(36px,5.4vw,62px)] font-light leading-[1.08] tracking-[1px] text-white">
+          <h1 className="mb-[clamp(10px,2.2svh,22px)] text-[clamp(36px,5.4vw,62px)] font-light leading-[1.08] tracking-[1px] text-white">
             This is your
             <span className="block">front-end developer</span>
             <span className="hero__name block font-extrabold">Albert Braun</span>
           </h1>
 
-          <p className="mx-auto max-w-[470px] text-[16px] leading-7 text-white/70 lg:mx-0">
+          <p className="mx-auto max-w-[470px] text-[clamp(14px,1.6vw,16px)] leading-7 text-white/70 lg:mx-0">
             I design and build fast, accessible interfaces — from landing pages
             to product UI. Let&apos;s turn your idea into a polished website.
           </p>
 
-          <div className="mt-[40px] flex flex-wrap items-center justify-center gap-[22px] lg:justify-start">
+          <div className="mt-[clamp(18px,4svh,40px)] flex flex-wrap items-center justify-center gap-[18px] lg:justify-start">
             <button
               type="button"
               className="hero__button min-w-[180px] cursor-pointer rounded-[29px] border border-[#194BFD] px-[22px] text-[14px] font-semibold leading-[44px] text-white transition-all duration-500"
@@ -66,31 +63,31 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative order-[-1] flex min-h-[380px] items-end justify-center lg:order-none lg:min-h-[460px]">
+        <div className="relative order-[-1] mx-auto flex h-[clamp(220px,40svh,520px)] w-full max-w-[520px] items-end justify-center lg:order-none lg:h-[min(680px,78svh)] lg:max-w-none">
           <img
             src={Star}
             alt=""
-            className="hero__spark pointer-events-none absolute top-[36px] right-[24px] z-20"
+            className="hero__spark pointer-events-none absolute top-[8%] right-[8%] z-20 w-[clamp(16px,2.4vw,28px)]"
           />
           <img
             src={Round}
             alt=""
-            className="hero__spark pointer-events-none absolute top-[18%] left-[8%] z-20"
+            className="hero__spark pointer-events-none absolute top-[16%] left-[6%] z-20 w-[clamp(22px,3vw,40px)]"
           />
           <img
             src={PinkRound}
             alt=""
-            className="pointer-events-none absolute bottom-[28%] left-0 z-20"
+            className="pointer-events-none absolute bottom-[26%] left-0 z-20 w-[clamp(28px,4vw,52px)]"
           />
 
-          <div className="hero__glow absolute bottom-[40px] h-[340px] w-[340px] rounded-full" />
+          <div className="hero__glow absolute bottom-[8%] size-[clamp(180px,36vw,380px)] rounded-full" />
           <img
             src={avatar}
             alt="Albert Braun"
-            className="hero__avatar relative z-10 w-full max-w-[420px] object-contain"
+            className="hero__avatar relative z-10 h-full w-auto max-w-full object-contain object-bottom"
           />
 
-          <div className="circle-wrapper absolute right-2 bottom-[18%] z-30 h-[134px] w-[134px]">
+          <div className="circle-wrapper absolute right-1 bottom-[14%] z-30 size-[clamp(84px,11vw,134px)] lg:right-2">
             <svg className="rotating-svg h-full w-full" viewBox="0 0 134 134">
               <defs>
                 <linearGradient
@@ -123,7 +120,7 @@ export default function Hero() {
               </text>
             </svg>
             <svg
-              className="center-star pointer-events-none absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2"
+              className="center-star pointer-events-none absolute top-1/2 left-1/2 h-[22%] w-[22%] -translate-x-1/2 -translate-y-1/2"
               viewBox="0 0 24 24"
               fill="none"
             >
@@ -199,7 +196,7 @@ export default function Hero() {
               />
             </label>
             <button
-              className="hero__button mt-2 min-w-[180px] self-center cursor-pointer rounded-[29px] border border-[#194BFD] px-[22px] text-[14px] font-semibold leading-[44px] text-white transition-all duration-500"
+              className="hero__button mt-2 min-w-[180px] cursor-pointer self-center rounded-[29px] border border-[#194BFD] px-[22px] text-[14px] font-semibold leading-[44px] text-white transition-all duration-500"
               type="submit"
             >
               Send Request
