@@ -1,3 +1,4 @@
+import logo from "../../images/Footer/logo.svg";
 import instagram from "../../images/Footer/in.svg";
 import facebook from "../../images/Footer/f.svg";
 import youtube from "../../images/Footer/y.svg";
@@ -5,119 +6,147 @@ import twitter from "../../images/Footer/t.svg";
 import call from "../../images/Footer/call.svg";
 import send from "../../images/Footer/send.svg";
 import location from "../../images/Footer/location.svg";
-import "./Footer.css";
+
+const QUICK_LINKS = [
+  { href: "#home", label: "Home" },
+  { href: "#services", label: "Service" },
+  { href: "#portfolios", label: "Projects" },
+  { href: "#about", label: "About" },
+  { href: "#client", label: "Client" },
+  { href: "#contact", label: "Contact" },
+];
+
+const IMPORTANT_LINKS = [
+  { href: "#", label: "Career" },
+  { href: "#", label: "Terms & Conditions" },
+  { href: "#", label: "Privacy Policy" },
+  { href: "#", label: "Cookies Policy" },
+  { href: "#", label: "Social Work" },
+];
+
+const SOCIALS = [
+  { href: "https://instagram.com", src: instagram, label: "Instagram" },
+  { href: "https://youtube.com", src: youtube, label: "YouTube" },
+  { href: "https://x.com", src: twitter, label: "X" },
+  { href: "https://facebook.com", src: facebook, label: "Facebook" },
+];
 
 export default function Footer() {
   return (
-    <footer id="contact" className="footer flex w-full scroll-mt-[108px] justify-center">
-      <div className="container w-full max-w-[1180px] px-[20px]">
-        <div className="flex items-center justify-between  mb-[27px] flex-wrap flex-col md:flex-row gap-[20px] ">
-          <div className="max-w-[289px] text-start">
-            <h2 className=" pl-[30px] text-white text-[16px] font-bold footer__logo relative mb-[23px] inline-block">
+    <footer
+      id="contact"
+      className="flex w-full scroll-mt-[108px] justify-center px-5 pt-12 sm:px-8 md:pt-16"
+    >
+      <div className="w-full max-w-[1160px]">
+        <div className="grid grid-cols-1 gap-10 text-start sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div className="lg:max-w-[289px]">
+            <a
+              href="#home"
+              className="mb-5 inline-flex items-center gap-2 text-[16px] font-bold text-white"
+            >
+              <img src={logo} alt="" className="h-6 w-6" />
               designer
-            </h2>
-            <p className="text-[14px] mb-[19px] leading-[20px]">
+            </a>
+            <p className="mb-5 max-w-[320px] text-[14px] leading-5">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex
               accusantium quidem ipsa ab maiores vel rerum nemo est nobis qui!
               accusantium quidem ipsa
             </p>
-            <div className="flex gap-[12px]">
-              <a
-                className="bg-[#111113] w-[30px] h-[30px] flex items-center justify-center rounded-[50%]"
-                href=""
-              >
-                <img className="h-[12px]" src={instagram} alt="" />
-              </a>
-              <a
-                className="bg-[#111113] w-[30px] h-[30px] flex items-center justify-center rounded-[50%]"
-                href=""
-              >
-                <img className="" src={youtube} alt="" />
-              </a>
-              <a
-                className="bg-[#111113] w-[30px] h-[30px] flex items-center justify-center rounded-[50%]"
-                href=""
-              >
-                <img className="" src={twitter} alt="" />
-              </a>
-              <a
-                className="bg-[#111113] w-[30px] h-[30px] flex items-center justify-center rounded-[50%]"
-                href=""
-              >
-                <img className="" src={facebook} alt="" />
-              </a>
+            <div className="flex gap-3">
+              {SOCIALS.map((social) => (
+                <a
+                  key={social.label}
+                  className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#111113] transition-colors duration-300 hover:bg-white/10"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                >
+                  <img src={social.src} alt="" />
+                </a>
+              ))}
             </div>
           </div>
-          <div className="flex flex-col gap-[5px] text-start max-w-[250px] w-full md:w-[100px]">
-            <span className="mb-[14px] font-bold text-[16px] tracking-wider text-white">
+
+          <nav aria-label="Quick links">
+            <h3 className="mb-4 text-[16px] font-bold tracking-wider text-white">
               Quick link
-            </span>
-            <ul className="flex flex-col text-start gap-[2px]">
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Home</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Service</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Projects</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">About</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Client</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Contact</a>
-              </li>
+            </h3>
+            <ul className="flex flex-col gap-1">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    className="text-[14px] italic transition-colors duration-300 hover:text-white"
+                    href={link.href}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
-          <div className="flex flex-col text-start gap-[5px] max-w-[250px] w-full md:w-[100px]">
-            <span className="mb-[14px] font-bold text-[16px] tracking-wider text-white">
+          </nav>
+
+          <nav aria-label="Important links">
+            <h3 className="mb-4 text-[16px] font-bold tracking-wider text-white">
               Important
-            </span>
-            <ul className="flex flex-col gap-[2px]">
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Career</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Terms & Conditions</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Privacy Policy</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Cookies Policy</a>
-              </li>
-              <li className="hover:text-white duration-500 ease-in-out text-[14px] italic">
-                <a href="">Social Work</a>
-              </li>
+            </h3>
+            <ul className="flex flex-col gap-1">
+              {IMPORTANT_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a
+                    className="text-[14px] italic transition-colors duration-300 hover:text-white"
+                    href={link.href}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
-          <div className="text-start max-w-[250px] w-full md:w-[100px]" >
-            <span className="inline-block mb-[20px] font-bold text-[16px] tracking-wider  text-white">
+          </nav>
+
+          <div>
+            <h3 className="mb-4 text-[16px] font-bold tracking-wider text-white">
               Contacts
-            </span>
-            <ul className="flex flex-col  gap-[7px]">
-              <li className="flex items-center gap-[10px]">
-                <img src={call} alt="" />
-                <span className="text-[14px] italic">+223 456 789</span>
+            </h3>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a
+                  className="flex items-center gap-2.5 text-[14px] italic transition-colors duration-300 hover:text-white"
+                  href="tel:+223456789"
+                >
+                  <img src={call} alt="" className="h-[15px] w-[15px] shrink-0" />
+                  +223 456 789
+                </a>
               </li>
-              <li className="flex items-center gap-[10px]">
-                <img src={send} alt="" />
-                <span className="text-[14px] italic">
-                  gladium1992@gmail.com
-                </span>
+              <li>
+                <a
+                  className="flex min-w-0 items-center gap-2.5 text-[14px] italic transition-colors duration-300 hover:text-white"
+                  href="mailto:gladium1992@gmail.com"
+                >
+                  <img src={send} alt="" className="h-[15px] w-[15px] shrink-0" />
+                  <span className="break-all">gladium1992@gmail.com</span>
+                </a>
               </li>
-              <li className="flex items-center gap-[10px]">
-                <img src={location} alt="" />
-                <span className="text-[14px] italic">Alicante</span>
+              <li>
+                <a
+                  className="flex items-center gap-2.5 text-[14px] italic transition-colors duration-300 hover:text-white"
+                  href="https://maps.google.com/?q=Alicante"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={location}
+                    alt=""
+                    className="h-[15px] w-[15px] shrink-0"
+                  />
+                  Alicante
+                </a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="py-[30px] text-[14px] italic tracking-[0.5px] text-center">
+
+        <div className="mt-10 border-t border-white/10 py-7 text-center text-[14px] italic tracking-[0.5px]">
           <span>Copyright 2022 | All Rights Reserved</span>
         </div>
       </div>

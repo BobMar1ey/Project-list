@@ -1,8 +1,0 @@
-.footer__logo::before{
-    content: url(../../images//Footer/logo.svg);
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 0px;
-    top: 1px;
-}
