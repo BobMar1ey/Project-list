@@ -1,161 +1,143 @@
-import { useEffect, useState } from "react";
 import "./Header.css";
+import { useEffect, useState } from "react";
 import Logo from "../../images/Header/logo.svg";
-import Instagram from "../../images/Footer/in.svg";
-import Facebook from "../../images/Footer/f.svg";
-import Youtube from "../../images/Footer/y.svg";
-import Twitter from "../../images/Footer/t.svg";
-import Call from "../../images/Footer/call.svg";
-import Send from "../../images/Footer/send.svg";
-import Location from "../../images/Footer/location.svg";
-
-const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#services", label: "Service" },
-  { href: "#portfolios", label: "Projects" },
-  { href: "#about", label: "About" },
-  { href: "#client", label: "Client" },
-  { href: "#contact", label: "Contact" },
-];
-
-const SOCIALS = [
-  { href: "https://instagram.com", src: Instagram, label: "Instagram" },
-  { href: "https://facebook.com", src: Facebook, label: "Facebook" },
-  { href: "https://x.com", src: Twitter, label: "X" },
-  { href: "https://youtube.com", src: Youtube, label: "YouTube" },
-];
-
+import Youtube from "../../images/Header/youtube.png";
+import Telegram from "../../images/Header/telegram.png";
+import Instagram from "../../images/Header/instagram.png";
+import Facebook from "../../images/Header/facebook.png";
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  let [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  let [burger, setBurger] = useState(false);
 
   useEffect(() => {
-    if (!menuOpen) return;
-
-    const onKeyDown = (event) => {
-      if (event.key === "Escape") setMenuOpen(false);
+    const handleresize = () => {
+      setIsMobile(window.innerWidth < 768);
     };
-    const onResize = () => {
-      if (window.innerWidth >= 768) setMenuOpen(false);
-    };
-
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("resize", onResize);
+    window.addEventListener("resize", handleresize);
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", handleresize);
     };
-  }, [menuOpen]);
-
-  const closeMenu = () => setMenuOpen(false);
-
-  const openDiscuss = (event) => {
-    event.preventDefault();
-    closeMenu();
-    window.dispatchEvent(new CustomEvent("open-discuss"));
-  };
-
+  }, []);
   return (
-    <header className="header sticky top-0 z-40 w-full border-b border-white/5 bg-[#171719]">
-      <div className="mx-auto flex w-full max-w-[1160px] flex-col px-[10px]">
-        <div className="hidden h-[40px] items-center justify-between md:flex">
+    <header className="flex flex-col h-[108px] justify-between px-[10px] max-w-[1160px] w-full">
+      {isMobile ? null : (
+        <div className="flex justify-between h-full items-center">
           <div className="flex gap-3">
-            {SOCIALS.map((social) => (
-              <a
-                key={social.label}
-                className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[rgba(230,230,230,0.1)] transition-colors duration-300 hover:bg-[rgba(230,230,230,0.22)]"
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-              >
-                <img src={social.src} alt="" />
-              </a>
-            ))}
-          </div>
-          <div className="flex gap-[28px] pr-[40px] text-sm">
             <a
-              className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
-              href="tel:+658436361"
+              className=" flex items-center justify-center w-[28px] h-[28px] bg-[rgba(230,230,230,0.1)] rounded-[50%]"
+              href=""
             >
-              <img src={Call} alt="" />
+              <img src={Instagram} alt="" />
+            </a>
+            <a
+              className=" flex items-center justify-center w-[28px] h-[28px] bg-[rgba(230,230,230,0.1)] rounded-[50%]"
+              href=""
+            >
+              <img src={Facebook} alt="" />
+            </a>
+            <a
+              className=" flex items-center justify-center w-[28px] h-[28px] bg-[rgba(230,230,230,0.1)] rounded-[50%]"
+              href=""
+            >
+              <img src={Telegram} alt="" />
+            </a>
+            <a
+              className=" flex items-center justify-center w-[28px] h-[28px] bg-[rgba(230,230,230,0.1)] rounded-[50%]"
+              href=""
+            >
+              <img src={Youtube} alt="" />
+            </a>
+          </div>
+          <div className="text-sm flex gap-[45px] pr-[60px]">
+            <a className="header__before" href="">
               +658436361
             </a>
-            <a
-              className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
-              href="mailto:gladium1992@gmail.com"
-            >
-              <img src={Send} alt="" />
+            <a className="header__before" href="">
               gladium1992@gmail.com
             </a>
-            <a
-              className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
-              href="https://maps.google.com/?q=Alicante"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={Location} alt="" />
+            <a className="header__before" href="">
               Alicante
             </a>
           </div>
         </div>
+      )}
 
-        <div className="flex h-[68px] items-center justify-between gap-3">
-          <a
-            className="relative z-10 flex shrink-0 items-center gap-2 text-white"
-            href="#home"
-            onClick={closeMenu}
-          >
-            <img className="h-6 w-6" src={Logo} alt="" />
-            <span>designer</span>
-          </a>
-
-          <nav
-            id="header-nav"
-            className={`header__nav ${menuOpen ? "active" : ""}`}
-            aria-label="Primary"
-          >
-            <ul>
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} onClick={closeMenu}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a
-              className="header__button header__button--menu"
-              href="#contact"
-              onClick={openDiscuss}
-            >
-              Discuss for Projects
-            </a>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <a
-              className="header__button header__button--bar"
-              href="#contact"
-              onClick={openDiscuss}
-            >
-              Discuss for Projects
-            </a>
-            <button
-              type="button"
-              className={`header__burger md:hidden ${menuOpen ? "active" : ""}`}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={menuOpen}
-              aria-controls="header-nav"
-              onClick={() => setMenuOpen((open) => !open)}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
+      <div className="flex justify-between h-[68px] items-center">
+        <div className="flex gap-[8px]">
+          <img className="h-[24px] w-[24px]" src={Logo} alt="" />
+          <span>designer</span>
         </div>
+        <nav
+          className={`flex md:max-w-[483px] w-full ${burger ? "active" : ""} navbar`}
+        >
+          <ul className="text-sm flex  w-full justify-between pl-[5px]">
+            <li>
+              <a
+                className="hover:text-[#E6E6E6] duration-600 ease-in-out tracking-[0.1px]"
+                href=""
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:text-[#E6E6E6] duration-600 ease-in-out"
+                href=""
+              >
+                Service
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:text-[#E6E6E6] duration-600 ease-in-out"
+                href=""
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:text-[#E6E6E6] duration-600 ease-in-out"
+                href=""
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:text-[#E6E6E6] duration-600 ease-in-out"
+                href=""
+              >
+                Client
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:text-[#E6E6E6] duration-600 ease-in-out"
+                href=""
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <a
+          className="header__button  text-[14px] flex justify-center items-center leading-[40px] px-[clamp(5px,0.5,10px)] min-w-[164px] border border-[rgba(25,75,253,1)] rounded-[29px] transition-all duration-[600ms] ease-in-out "
+          href="#"
+        >
+          Discuss for Projects
+        </a>
+        {isMobile && (
+          <div
+            className={`header__burger ${burger ? "active" : ""}`}
+            onClick={() => setBurger(!burger)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        )}
       </div>
     </header>
   );
