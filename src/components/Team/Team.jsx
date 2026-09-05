@@ -5,78 +5,87 @@ import three from "../../images/Team/3.png";
 import four from "../../images/Team/4.png";
 import rectangle from "../../images/Team/Rectangle.svg";
 import plane from "../../images/Team/plane.png";
+import contactBg from "../../images/Team/bg.webp";
+
+const MEMBERS = [
+  { img: one, title: "UI & UX Design" },
+  { img: two, title: "UI & UX Design" },
+  { img: three, title: "UI & UX Design" },
+  { img: four, title: "UI & UX Design" },
+];
 
 export default function Team() {
-  const list = [
-    { img: one, title: "UI & UX Design" },
-    { img: two, title: "UI & UX Design" },
-    { img: three, title: "UI & UX Design" },
-    { img: four, title: "UI & UX Design" },
-  ];
-
   return (
-    <section className="team w-full py-12 md:py-25 bg-[#171719]">
-      <div className="container mx-auto px-4 flex flex-col items-center">
-        <div className="max-w-[426px] mb-12">
-          <h3 className="font-bold uppercase text-[clamp(11px,1.5vw,14px)] text-gray-400 tracking-[clamp(1px,0.1vw,2px)]">
+    <section className="flex w-full flex-col items-center bg-[#171719] px-5 py-12 sm:px-8 md:py-[100px]">
+      <div className="flex w-full max-w-[1160px] flex-col items-center">
+        <div className="mb-10 max-w-[510px] text-center md:mb-16">
+          <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
             teams
           </h3>
-          <h2 className="mb-[0.4em] text-[#fff] text-[clamp(20px,2vw,32px)] font-bold mt-1">
+          <h2 className="mb-[10px] text-[clamp(28px,4vw,32px)] tracking-[1px] text-white">
             My <span className="text-[#194BFD]">team members</span>
           </h2>
-          <p className="text-gray-400 mt-2">
+          <p className="mx-auto max-w-[426px] leading-6">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum alias
             quidem reprehenderit molestiae veniam? Inventore.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-[clamp(30px,3vw,60px)] mb-[87px]">
-          {list.map((i, index) => {
-            return (
-              <div
-                key={index}
-                className="   rounded-[12px] max-w-[241px]   w-full flex flex-col items-center  flex-wrap hover:bg-[#111111]/40 hover:duration-500"
-              >
-                <div className="team__img-box h-[215px] w-[229px] overflow-hidden rounded-[16px] mb-5 relative ">
-                  <img
-                    src={i.img}
-                    alt={i.title}
-                    className="w-full h-full object-cover z-30 absolute"
-                  />
-                  <img
-                    className="w-full h-full  z-10 bottom-[-30px] absolute"
-                    src={rectangle}
-                    alt=""
-                  />
-                </div>
-                <div className="p-[0.5em] text-start">
-                  <h3 className="text-white text-[clamp(12px,1.2vw,18px)]  mb-2">
-                    {i.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  </p>
-                </div>
+        <div className="mb-12 grid w-full grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 lg:mb-[72px] lg:grid-cols-4 lg:gap-6">
+          {MEMBERS.map((member) => (
+            <article
+              key={member.img}
+              className="group flex w-full max-w-[300px] flex-col rounded-xl p-2 transition-colors duration-500 hover:bg-[#111111]/40 sm:max-w-[241px]"
+            >
+              <div className="relative mb-5 h-[215px] w-full">
+                <img
+                  src={rectangle}
+                  alt=""
+                  className="pointer-events-none absolute inset-x-0 bottom-[-22px] z-0 w-full"
+                />
+                <img
+                  src={member.img}
+                  alt={member.title}
+                  className="relative z-10 h-full w-full rounded-2xl object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                />
               </div>
-            );
-          })}
+              <div className="px-1 pt-1 text-start">
+                <h3 className="mb-2 text-[18px] text-white">{member.title}</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
-        <div className="team__contact flex flex-wrap max-w-[1138px] w-full justify-center lg:justify-between items-center px-[clamp(5px,4vw,54px)] py-[clamp(5px,2vw,42px)]">
-          <div className="flex items-center gap-[clamp(10px,0.9vw,16px)] max-w-[454px]">
-            <img className="w-[clamp(40px,5vw,85px)] h-[clamp(40px,5vw,85px)]" src={plane} alt="" />
-            <div className="text-start">
-              <h2 className="text-[clamp(20px,2vw,32px)] text-white font-bold mb-[0.1em]">
+
+        <div
+          className="flex min-h-[171px] w-full max-w-[1138px] flex-col items-center justify-between gap-6 overflow-hidden rounded-[20px] bg-cover bg-center bg-no-repeat px-5 py-6 sm:flex-row sm:px-8 md:px-[54px] md:py-10"
+          style={{ backgroundImage: `url(${contactBg})` }}
+        >
+          <div className="flex w-full max-w-[454px] items-center gap-3 text-center sm:gap-4 sm:text-start">
+            <img
+              src={plane}
+              alt=""
+              className="size-[clamp(48px,8vw,85px)] shrink-0"
+            />
+            <div className="min-w-0 text-start">
+              <h2 className="mb-1 text-[clamp(20px,2.4vw,32px)] font-bold text-white">
                 Have any project idea?
               </h2>
-              <p className="text-[clamp(12px,1vw,14px)]">
+              <p className="text-[clamp(12px,1.4vw,14px)] leading-relaxed">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
                 fugit pariatur aliquid porro blanditiis deleniti!
               </p>
             </div>
           </div>
           <a
-            className="header__button  text-[14px] flex justify-center items-center leading-[40px] px-[clamp(5px,0.5,10px)] min-w-[215px] border border-[rgba(25,75,253,1)] rounded-[29px] transition-all duration-[600ms] ease-in-out "
-            href="#"
+            className="team__button flex min-h-[40px] w-full min-w-[180px] shrink-0 items-center justify-center rounded-full border border-[#194BFD] px-6 text-[14px] text-white transition-all duration-500 sm:w-auto sm:min-w-[215px]"
+            href="#contact"
+            onClick={(event) => {
+              event.preventDefault();
+              window.dispatchEvent(new CustomEvent("open-discuss"));
+            }}
           >
             Contact now
           </a>
