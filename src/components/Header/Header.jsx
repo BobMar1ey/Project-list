@@ -74,7 +74,7 @@ export default function Header() {
             <li>
               <a
                 className="hover:text-[#E6E6E6] duration-600 ease-in-out tracking-[0.1px]"
-                href=""
+                href="#home"
               >
                 Home
               </a>
@@ -82,7 +82,7 @@ export default function Header() {
             <li>
               <a
                 className="hover:text-[#E6E6E6] duration-600 ease-in-out"
-                href=""
+                href="#services"
               >
                 Service
               </a>
@@ -90,7 +90,7 @@ export default function Header() {
             <li>
               <a
                 className="hover:text-[#E6E6E6] duration-600 ease-in-out"
-                href=""
+                href="#portfolios"
               >
                 Projects
               </a>
@@ -98,7 +98,7 @@ export default function Header() {
             <li>
               <a
                 className="hover:text-[#E6E6E6] duration-600 ease-in-out"
-                href=""
+                href="#about"
               >
                 About
               </a>
