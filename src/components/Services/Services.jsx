@@ -1,4 +1,3 @@
-import "./Services.css";
 import One from "../../images/Services/one.svg";
 import Two from "../../images/Services/two.svg";
 import Three from "../../images/Services/three.svg";
@@ -17,8 +16,8 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section className="Services flex w-full flex-col items-center px-5 pt-[60px] pb-[50px] sm:px-8 md:pt-[100px] lg:pt-[120px]">
-      <div className="container flex w-full max-w-[1160px] flex-col items-center">
+    <section className="flex w-full flex-col items-center px-5 pt-[60px] pb-[50px] sm:px-8 md:pt-[100px] lg:pt-[120px]">
+      <div className="flex w-full max-w-[1160px] flex-col items-center">
         <div className="mb-[40px] max-w-[510px] text-center md:mb-[72px]">
           <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
             Services
@@ -32,24 +31,45 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="services__grid">
+        <div className="grid w-full grid-cols-1 justify-items-center gap-x-4 gap-y-9 sm:grid-cols-2 sm:gap-x-3 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-2.5 lg:gap-y-[55px]">
           {SERVICES.map((item) => (
-            <article key={item.title} className="services__item">
-              <div className="services__icon">
-                <img src={item.img} alt="" />
+            <article
+              key={item.title}
+              className="group relative z-0 flex w-full max-w-[369px] min-h-[260px] flex-col items-center px-4 pt-2 pb-[22px] text-center before:pointer-events-none before:absolute before:inset-x-0 before:top-3 before:bottom-0 before:-z-10 before:bg-black/20 before:content-[''] lg:max-w-none"
+            >
+              <span
+                className="pointer-events-none absolute top-24 bottom-0 left-0 w-4 bg-[repeating-linear-gradient(135deg,rgba(98,98,108,0.7)_0_2px,transparent_2px_7px)]"
+                aria-hidden="true"
+              />
+              <span
+                className="pointer-events-none absolute top-24 right-0 bottom-0 w-4 bg-[repeating-linear-gradient(135deg,rgba(98,98,108,0.7)_0_2px,transparent_2px_7px)]"
+                aria-hidden="true"
+              />
+
+              <div className="relative z-10 mb-7 grid size-[88px] place-items-center before:absolute before:size-[70px] before:rounded-[18px] before:border before:border-[#6b6375] before:bg-[#16171d] before:content-[''] before:rotate-[-45deg] before:shadow-none before:transition-[transform,border-color,box-shadow] before:duration-[1200ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:rotate-[410deg] group-hover:before:border-[#194BFD]/90 group-hover:before:shadow-[0_0_18px_rgba(25,75,253,0.22)] group-focus-within:before:rotate-[410deg] group-focus-within:before:border-[#194BFD]/90 group-focus-within:before:shadow-[0_0_18px_rgba(25,75,253,0.22)] motion-reduce:before:transition-none motion-reduce:group-hover:before:rotate-[-45deg] motion-reduce:group-focus-within:before:rotate-[-45deg]">
+                <img
+                  src={item.img}
+                  alt=""
+                  className="relative z-10 size-[35px]"
+                />
               </div>
 
-              <h3 className="services__title">{item.title}</h3>
+              <h3 className="relative z-10 mb-[18px] pb-4 text-[18px] font-bold tracking-[0.4px] text-white before:absolute before:bottom-0 before:left-1/2 before:h-[3px] before:w-8 before:-translate-x-1/2 before:bg-[#194BFD] before:content-['']">
+                {item.title}
+              </h3>
 
-              <p className="services__text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Libero, magni.
+              <p className="relative z-10 mb-[22px] max-w-[260px] text-[14px] leading-[1.6] text-[#9ca3af]">
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint.
               </p>
 
-              <a href="#" className="services__cta">
+              <a
+                href="#"
+                className="group/cta relative z-10 inline-flex min-w-[188px] items-center justify-between gap-3 rounded-full bg-[rgba(230,230,230,0.1)] px-[18px] text-[13px] font-medium italic leading-[40px] text-white transition-colors duration-300 hover:bg-[rgba(230,230,230,0.2)] focus-visible:bg-[rgba(230,230,230,0.2)]"
+              >
                 <span>Discuss for Projects</span>
                 <svg
-                  className="services__cta-arrow"
+                  className="h-2 w-4 shrink-0 transition-transform duration-300 group-hover/cta:translate-x-[5px] motion-reduce:translate-x-0 motion-reduce:transition-none"
                   viewBox="0 0 18 10"
                   fill="none"
                   aria-hidden="true"
