@@ -1,3 +1,4 @@
+import Reveal from "../Reveal/Reveal";
 import logo from "../../images/Footer/logo.svg";
 import instagram from "../../images/Footer/in.svg";
 import facebook from "../../images/Footer/f.svg";
@@ -38,7 +39,7 @@ export default function Footer() {
       className="flex w-full scroll-mt-[108px] justify-center px-5 pt-12 sm:px-8 md:pt-16"
     >
       <div className="w-full max-w-[1160px]">
-        <div className="grid grid-cols-1 gap-10 text-start sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <Reveal className="grid grid-cols-1 gap-10 text-start sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="lg:max-w-[289px]">
             <a
               href="#home"
@@ -144,11 +145,11 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="mt-10 border-t border-white/10 py-7 text-center text-[14px] italic tracking-[0.5px]">
+        <Reveal delay={160} className="mt-10 border-t border-white/10 py-7 text-center text-[14px] italic tracking-[0.5px]">
           <span>Copyright 2022 | All Rights Reserved</span>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

@@ -1,4 +1,5 @@
 import "./Team.css";
+import Reveal from "../Reveal/Reveal";
 import one from "../../images/Team/1.png";
 import two from "../../images/Team/2.png";
 import three from "../../images/Team/3.png";
@@ -18,7 +19,7 @@ export default function Team() {
   return (
     <section className="flex w-full flex-col items-center bg-[#171719] px-5 py-12 sm:px-8 md:py-[100px]">
       <div className="flex w-full max-w-[1160px] flex-col items-center">
-        <div className="mb-10 max-w-[510px] text-center md:mb-16">
+        <Reveal className="mb-10 max-w-[510px] text-center md:mb-16">
           <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
             teams
           </h3>
@@ -29,12 +30,14 @@ export default function Team() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum alias
             quidem reprehenderit molestiae veniam? Inventore.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mb-12 grid w-full grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 lg:mb-[72px] lg:grid-cols-4 lg:gap-6">
-          {MEMBERS.map((member) => (
-            <article
+          {MEMBERS.map((member, index) => (
+            <Reveal
+              as="article"
               key={member.img}
+              delay={index * 120}
               className="group flex w-full max-w-[300px] flex-col rounded-xl p-2 transition-colors duration-500 hover:bg-[#111111]/40 sm:max-w-[241px]"
             >
               <div className="relative mb-5 h-[215px] w-full">
@@ -55,11 +58,12 @@ export default function Team() {
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 </p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
 
-        <div
+        <Reveal
+          variant="scale"
           className="flex min-h-[171px] w-full max-w-[1138px] flex-col items-center justify-between gap-6 overflow-hidden rounded-[20px] bg-cover bg-center bg-no-repeat px-5 py-6 sm:flex-row sm:px-8 md:px-[54px] md:py-10"
           style={{ backgroundImage: `url(${contactBg})` }}
         >
@@ -89,7 +93,7 @@ export default function Team() {
           >
             Contact now
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import Arrow from "../../images/Work/Arrow.png";
+import Reveal from "../Reveal/Reveal";
 import "./Work.css";
 
 const STEPS = [
@@ -17,7 +18,7 @@ export default function Work() {
       className="Work flex w-full scroll-mt-[108px] flex-col items-center overflow-x-clip px-5 pt-[60px] pb-[50px] sm:px-8 md:pt-[100px]"
     >
       <div className="container flex w-full max-w-[1160px] flex-col items-center">
-        <div className="mb-[36px] flex max-w-[510px] flex-col items-center text-center md:mb-[56px]">
+        <Reveal className="mb-[36px] flex max-w-[510px] flex-col items-center text-center md:mb-[56px]">
           <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
             about me
           </h3>
@@ -28,14 +29,20 @@ export default function Work() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             nostrum cum doloribus incidunt, aliquid pariatur?
           </p>
-        </div>
+        </Reveal>
 
         <ol className="work__track">
           {STEPS.map((step, index) => {
             const isLast = index === STEPS.length - 1;
 
             return (
-              <li key={step.label} className="work__item">
+              <Reveal
+                as="li"
+                key={step.label}
+                delay={index * 110}
+                variant="scale"
+                className="work__item"
+              >
                 <div className="work__diamond">
                   <div className="work__diamond-inner">
                     <div className="work__copy">
@@ -54,7 +61,7 @@ export default function Work() {
                     aria-hidden="true"
                   />
                 )}
-              </li>
+              </Reveal>
             );
           })}
         </ol>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Hero.css";
+import Reveal from "../Reveal/Reveal";
 import arrowIcon from "../../images/Hero/arrow.svg";
 import avatar from "../../images/Hero/avatar.png";
 import Star from "../../images/Hero/star.png";
@@ -34,36 +35,46 @@ export default function Hero() {
     <section id="home" className="Hero relative z-0 w-full overflow-hidden">
       <div className="relative z-10 mx-auto grid h-full w-full max-w-[1160px] items-center gap-6 px-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:gap-10 lg:px-8">
         <div className="max-w-[620px] text-center lg:text-start">
-          <h1 className="mb-[clamp(10px,2.2svh,22px)] text-[clamp(36px,5.4vw,62px)] font-light leading-[1.08] tracking-[1px] text-white">
-            This is your
-            <span className="block">front-end developer</span>
-            <span className="hero__name block font-extrabold">Albert Braun</span>
-          </h1>
+          <Reveal>
+            <h1 className="mb-[clamp(10px,2.2svh,22px)] text-[clamp(36px,5.4vw,62px)] font-light leading-[1.08] tracking-[1px] text-white">
+              This is your
+              <span className="block">front-end developer</span>
+              <span className="hero__name block font-extrabold">Albert Braun</span>
+            </h1>
+          </Reveal>
 
-          <p className="mx-auto max-w-[470px] text-[clamp(14px,1.6vw,16px)] leading-7 text-white/70 lg:mx-0">
-            I design and build fast, accessible interfaces — from landing pages
-            to product UI. Let&apos;s turn your idea into a polished website.
-          </p>
+          <Reveal delay={140}>
+            <p className="mx-auto max-w-[470px] text-[clamp(14px,1.6vw,16px)] leading-7 text-white/70 lg:mx-0">
+              I design and build fast, accessible interfaces — from landing pages
+              to product UI. Let&apos;s turn your idea into a polished website.
+            </p>
+          </Reveal>
 
-          <div className="mt-[clamp(18px,4svh,40px)] flex flex-wrap items-center justify-center gap-[18px] lg:justify-start">
-            <button
-              type="button"
-              className="hero__button min-w-[180px] cursor-pointer rounded-[29px] border border-[#194BFD] px-[22px] text-[14px] font-semibold leading-[44px] text-white transition-all duration-500"
-              onClick={() => setOpen(true)}
-            >
-              Discuss for Projects
-            </button>
-            <a
-              href="#portfolios"
-              className="hero__link inline-flex items-center gap-[10px] text-[14px] text-white"
-            >
-              View Portfolios
-              <img src={arrowIcon} alt="" className="h-[13px] w-[28px]" />
-            </a>
-          </div>
+          <Reveal delay={260}>
+            <div className="mt-[clamp(18px,4svh,40px)] flex flex-wrap items-center justify-center gap-[18px] lg:justify-start">
+              <button
+                type="button"
+                className="hero__button min-w-[180px] cursor-pointer rounded-[29px] border border-[#194BFD] px-[22px] text-[14px] font-semibold leading-[44px] text-white transition-all duration-500"
+                onClick={() => setOpen(true)}
+              >
+                Discuss for Projects
+              </button>
+              <a
+                href="#portfolios"
+                className="hero__link inline-flex items-center gap-[10px] text-[14px] text-white"
+              >
+                View Portfolios
+                <img src={arrowIcon} alt="" className="h-[13px] w-[28px]" />
+              </a>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="relative order-[-1] mx-auto flex h-[clamp(220px,40svh,520px)] w-full max-w-[520px] items-end justify-center lg:order-none lg:h-[min(680px,78svh)] lg:max-w-none">
+        <Reveal
+          variant="right"
+          delay={180}
+          className="relative order-[-1] mx-auto flex h-[clamp(220px,40svh,520px)] w-full max-w-[520px] items-end justify-center lg:order-none lg:h-[min(680px,78svh)] lg:max-w-none"
+        >
           <img
             src={Star}
             alt=""
@@ -130,7 +141,7 @@ export default function Hero() {
               />
             </svg>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       {open && (

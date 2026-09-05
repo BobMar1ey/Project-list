@@ -45,3 +45,45 @@ textarea {
   flex-direction: column;
   box-sizing: border-box;
 }
+
+.reveal {
+  --reveal-delay: 0ms;
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay);
+}
+
+.reveal--left {
+  transform: translate3d(-48px, 0, 0);
+}
+
+.reveal--right {
+  transform: translate3d(48px, 0, 0);
+}
+
+.reveal--scale {
+  transform: scale(0.92);
+}
+
+.reveal--fade {
+  transform: none;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale,
+  .reveal--fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -4,6 +4,7 @@ import Three from "../../images/Services/three.svg";
 import Four from "../../images/Services/four.svg";
 import Five from "../../images/Services/five.svg";
 import Six from "../../images/Services/six.svg";
+import Reveal from "../Reveal/Reveal";
 
 const SERVICES = [
   { title: "Digital branding", img: One },
@@ -21,7 +22,7 @@ export default function Services() {
       className="flex w-full scroll-mt-[108px] flex-col items-center px-5 pt-[60px] pb-[50px] sm:px-8 md:pt-[100px] lg:pt-[120px]"
     >
       <div className="flex w-full max-w-[1160px] flex-col items-center">
-        <div className="mb-[40px] max-w-[510px] text-center md:mb-[72px]">
+        <Reveal className="mb-[40px] max-w-[510px] text-center md:mb-[72px]">
           <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
             Services
           </h3>
@@ -32,12 +33,14 @@ export default function Services() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nisi
             numquam illum voluptatum sint sequi.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid w-full grid-cols-1 justify-items-center gap-x-4 gap-y-9 sm:grid-cols-2 sm:gap-x-3 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-2.5 lg:gap-y-[55px]">
-          {SERVICES.map((item) => (
-            <article
+          {SERVICES.map((item, index) => (
+            <Reveal
+              as="article"
               key={item.title}
+              delay={(index % 3) * 120}
               className="group relative z-0 flex w-full max-w-[369px] min-h-[260px] flex-col items-center px-4 pt-2 pb-[22px] text-center before:pointer-events-none before:absolute before:inset-x-0 before:top-3 before:bottom-0 before:-z-10 before:bg-black/20 before:content-[''] lg:max-w-none"
             >
               <span
@@ -86,7 +89,7 @@ export default function Services() {
                   />
                 </svg>
               </a>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

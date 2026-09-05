@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import Reveal from "../Reveal/Reveal";
 
 import "swiper/css/bundle";
 import "./ProjectsSlider.css";
@@ -12,15 +13,15 @@ export default function Swipe({ arrProjects = [] }) {
   return (
 <section id="portfolios" className="w-full scroll-mt-[108px] bg-[#171719] py-12 md:py-21">
   <div className="max-w-[1240px] mx-auto px-4 mb-8 w-full flex justify-center ">
-    <div className="max-w-[440px]">
+    <Reveal className="max-w-[440px]">
       <h3 className="uppercase text-[clamp(11px,1.5vw,14px)] text-gray-400 tracking-[clamp(1px,0.1vw,2px)]  mb-[0.5em]">Portfolios</h3>
  
       <h2 className="text-[#fff] text-[clamp(20px,2vw,32px)] font-bold tracking-wide mb-[0.3em]">My <span className="text-[#194BFD] ">completed projects</span></h2>
       <p className="text-gray-400 tracking-wide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam fuga sapiente eveniet quidem officiis dolores.</p>
-    </div>
+    </Reveal>
   </div>
 
-  <div className="relative w-full overflow-hidden pt-[32px] flex flex-col gap-[30px]">
+  <Reveal variant="fade" delay={160} className="relative w-full overflow-hidden pt-[32px] flex flex-col gap-[30px]">
     <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
       <a
         href="#"
@@ -85,7 +86,7 @@ export default function Swipe({ arrProjects = [] }) {
         </SwiperSlide>
       ))}
     </Swiper>
-  </div>
+  </Reveal>
 </section>
   );
 }

@@ -1,4 +1,5 @@
 import "./Recommend.css";
+import Reveal from "../Reveal/Reveal";
 
 import Signature from "../../images/Recommend/signature.png";
 import Avatar from "../../images/Recommend/avatar.webp";
@@ -10,7 +11,7 @@ export default function Reconnend() {
       className="recommend flex w-full max-w-[1228px] scroll-mt-[108px] justify-center pt-[35px]"
     >
       <div className="container flex lg:justify-start justify-center  gap-[clamp(30px,6vw,105px)] p-[clamp(20px,5vw,70px)] flex-wrap">
-        <div className="recommend__img-box relative ">
+        <Reveal variant="left" className="recommend__img-box relative ">
           <img src={Avatar} alt="" />
           <div className="absolute right-[-70px] bottom-[-72px] ">
             <div class="circle-wrapper">
@@ -56,8 +57,8 @@ export default function Reconnend() {
               </svg>
             </div>
           </div>
-        </div>
-        <div className="recommend__text-box max-w-[600px]  flex flex-col justify-center text-start pt-[5px]  pr-[50px] relative">
+        </Reveal>
+        <Reveal variant="right" delay={160} className="recommend__text-box max-w-[600px]  flex flex-col justify-center text-start pt-[5px]  pr-[50px] relative">
           <h2 className="text-[18px] tracking-normal mb-[1.2em] font-bold text-white">
             “Service is good and I recommend”
           </h2>
@@ -77,7 +78,7 @@ export default function Reconnend() {
             doloribus error consequatur sint sunt esse.
           </p>
           <img src={Signature} alt="" className="w-[clamp(100px,12vw,160px)]" />
-        </div>
+        </Reveal>
       </div>
     </section>
   );
