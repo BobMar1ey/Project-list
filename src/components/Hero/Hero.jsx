@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import "./Hero.css";
 import arrowIcon from "../../images/Hero/arrow.svg";
+import avatar from "../../images/Hero/avatar.png";
 import Star from "../../images/Hero/star.png";
 import PinkRound from "../../images/Hero/pinkRound.png";
 import Round from "../../images/Hero/round.png";
 
 export default function Hero() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onOpenDiscuss = () => setOpen(true);
+    window.addEventListener("open-discuss", onOpenDiscuss);
+    return () => window.removeEventListener("open-discuss", onOpenDiscuss);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -24,58 +31,67 @@ export default function Hero() {
   }, [open]);
 
   return (
-    <section className="Hero relative flex w-full justify-center pt-[77px]">
-      <div className="container relative max-w-[1160px] w-full">
-        <img
-          src={Star}
-          alt=""
-          className="pointer-events-none absolute right-[55px] top-[130px] hidden md:block"
-        />
-        <img
-          src={Round}
-          alt=""
-          className="pointer-events-none absolute right-[38%] top-[10%] hidden md:block"
-        />
-
-        <div className="relative max-w-[600px] pb-[220px] pl-[20px] pt-[76px] text-start md:pb-[100px] md:pl-[92px]">
-          <img
-            src={PinkRound}
-            alt=""
-            className="pointer-events-none absolute bottom-[100px] right-[-40px] hidden md:block"
-          />
-
-          <h1 className="mb-[28px] text-[clamp(34px,7vw,59px)] font-light leading-[1.12] tracking-[2px] text-white">
-            This is your front-end developer{" "}
-            <span className="font-extrabold text-[#194BFD]">Albert Braun</span>
+    <section
+      id="home"
+      className="Hero relative w-full scroll-mt-[108px] overflow-hidden px-[20px] py-[48px] md:pb-[80px]"
+    >
+      <div className="relative z-10 mx-auto grid max-w-[1160px] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,460px)]">
+        <div className="max-w-[620px] text-center lg:text-start">
+          <h1 className="mb-[22px] text-[clamp(36px,5.4vw,62px)] font-light leading-[1.08] tracking-[1px] text-white">
+            This is your
+            <span className="block">front-end developer</span>
+            <span className="hero__name block font-extrabold">Albert Braun</span>
           </h1>
 
-          <p className="max-w-[480px] text-[15px] leading-7 text-white/70 md:text-base">
+          <p className="mx-auto max-w-[470px] text-[16px] leading-7 text-white/70 lg:mx-0">
             I design and build fast, accessible interfaces — from landing pages
             to product UI. Let&apos;s turn your idea into a polished website.
           </p>
 
-          <div className="flex flex-wrap items-center gap-[24px] pt-[53px]">
+          <div className="mt-[40px] flex flex-wrap items-center justify-center gap-[22px] lg:justify-start">
             <button
               type="button"
+              className="hero__button min-w-[180px] cursor-pointer rounded-[29px] border border-[#194BFD] px-[22px] text-[14px] font-semibold leading-[44px] text-white transition-all duration-500"
               onClick={() => setOpen(true)}
-              className="hero__button flex min-w-[164px] cursor-pointer items-center justify-center rounded-[29px] border border-[rgba(25,75,253,1)] px-[18px] text-[14px] font-medium leading-[40px] text-white transition-all duration-[600ms] ease-in-out"
             >
               Discuss for Projects
             </button>
-
             <a
               href="#portfolios"
-              className="arrow__button text-[14px] text-white/80 duration-700 hover:text-white"
+              className="hero__link inline-flex items-center gap-[10px] text-[14px] text-white"
             >
-              <span>View Portfolios</span>
-              <img src={arrowIcon} alt="" />
+              View Portfolios
+              <img src={arrowIcon} alt="" className="h-[13px] w-[28px]" />
             </a>
           </div>
         </div>
 
-        <div className="absolute right-[20px] top-[78%] hidden sm:block md:right-[85px] md:top-[50%]">
-          <div className="circle-wrapper">
-            <svg className="rotating-svg" viewBox="0 0 134 134">
+        <div className="relative order-[-1] flex min-h-[380px] items-end justify-center lg:order-none lg:min-h-[460px]">
+          <img
+            src={Star}
+            alt=""
+            className="hero__spark pointer-events-none absolute top-[36px] right-[24px] z-20"
+          />
+          <img
+            src={Round}
+            alt=""
+            className="hero__spark pointer-events-none absolute top-[18%] left-[8%] z-20"
+          />
+          <img
+            src={PinkRound}
+            alt=""
+            className="pointer-events-none absolute bottom-[28%] left-0 z-20"
+          />
+
+          <div className="hero__glow absolute bottom-[40px] h-[340px] w-[340px] rounded-full" />
+          <img
+            src={avatar}
+            alt="Albert Braun"
+            className="hero__avatar relative z-10 w-full max-w-[420px] object-contain"
+          />
+
+          <div className="circle-wrapper absolute right-2 bottom-[18%] z-30 h-[134px] w-[134px]">
+            <svg className="rotating-svg h-full w-full" viewBox="0 0 134 134">
               <defs>
                 <linearGradient
                   id="heroPurpleGrad"
@@ -106,7 +122,11 @@ export default function Hero() {
                 </textPath>
               </text>
             </svg>
-            <svg className="center-star" viewBox="0 0 24 24" fill="none">
+            <svg
+              className="center-star pointer-events-none absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
               <path
                 d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z"
                 fill="#fff"
@@ -122,78 +142,68 @@ export default function Hero() {
           onClick={() => setOpen(false)}
         >
           <form
+            className="hero__modal relative flex w-full max-w-[480px] flex-col gap-[14px] rounded-[18px] border border-white/10 bg-[#171719] px-7 py-8 shadow-2xl"
             onClick={(event) => event.stopPropagation()}
             onSubmit={(event) => {
               event.preventDefault();
               setOpen(false);
             }}
-            className="hero__modal relative flex w-full max-w-[550px] flex-col rounded-[16px] border border-white/10 bg-[#171719] p-6 shadow-2xl sm:p-[30px]"
           >
             <button
               type="button"
+              className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full text-[22px] leading-none text-white/60 hover:bg-white/10 hover:text-white"
               onClick={() => setOpen(false)}
-              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-xl text-white/60 hover:bg-white/10 hover:text-white"
             >
               ×
             </button>
-
-            <h2 className="mb-6 text-center text-2xl font-bold text-white">
+            <h2 className="mb-2 text-center text-2xl font-bold text-white">
               Discuss your project
             </h2>
-
-            <div className="flex w-full flex-col gap-4">
-              <label className="flex flex-col gap-1.5 text-sm font-medium text-gray-300">
-                Your name
-                <input
-                  className="rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name..."
-                  required
-                />
-              </label>
-
-              <label className="flex flex-col gap-1.5 text-sm font-medium text-gray-300">
-                Your email
-                <input
-                  className="rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email..."
-                  required
-                />
-              </label>
-
-              <label className="flex flex-col gap-1.5 text-sm font-medium text-gray-300">
-                Your number
-                <input
-                  className="rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
-                  type="tel"
-                  name="number"
-                  placeholder="Enter your number..."
-                  required
-                />
-              </label>
-
-              <label className="flex flex-col gap-1.5 text-sm font-medium text-gray-300">
-                Project details
-                <textarea
-                  name="details"
-                  rows={3}
-                  placeholder="Enter project details..."
-                  className="resize-none rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
-                />
-              </label>
-
-              <div className="mt-2 flex justify-center">
-                <button
-                  className="hero__button flex w-[164px] cursor-pointer items-center justify-center rounded-[29px] border border-[rgba(25,75,253,1)] px-[18px] text-[14px] font-medium leading-[40px] text-white transition-all duration-[600ms] ease-in-out"
-                  type="submit"
-                >
-                  Send Request
-                </button>
-              </div>
-            </div>
+            <label className="flex flex-col gap-1.5 text-left text-[13px] font-medium text-gray-300">
+              Your name
+              <input
+                className="rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
+                type="text"
+                name="name"
+                placeholder="Enter your name..."
+                required
+              />
+            </label>
+            <label className="flex flex-col gap-1.5 text-left text-[13px] font-medium text-gray-300">
+              Your email
+              <input
+                className="rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
+                type="email"
+                name="email"
+                placeholder="Enter your email..."
+                required
+              />
+            </label>
+            <label className="flex flex-col gap-1.5 text-left text-[13px] font-medium text-gray-300">
+              Your number
+              <input
+                className="rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
+                type="tel"
+                name="number"
+                placeholder="Enter your number..."
+                required
+              />
+            </label>
+            <label className="flex flex-col gap-1.5 text-left text-[13px] font-medium text-gray-300">
+              Project details
+              <textarea
+                className="resize-none rounded-[8px] border border-white/10 bg-[#111216] p-3 text-sm text-white focus:border-[#194BFD] focus:outline-none"
+                name="details"
+                rows={3}
+                placeholder="Enter project details..."
+              />
+            </label>
+            <button
+              className="hero__button mt-2 min-w-[180px] self-center cursor-pointer rounded-[29px] border border-[#194BFD] px-[22px] text-[14px] font-semibold leading-[44px] text-white transition-all duration-500"
+              type="submit"
+            >
+              Send Request
+            </button>
           </form>
         </div>
       )}

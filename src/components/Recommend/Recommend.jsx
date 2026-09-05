@@ -5,7 +5,10 @@ import Avatar from "../../images/Recommend/avatar.webp";
 
 export default function Reconnend() {
   return (
-    <section className="recommend max-w-[1228px] flex w-full pt-[35px] justify-center">
+    <section
+      id="client"
+      className="recommend flex w-full max-w-[1228px] scroll-mt-[108px] justify-center pt-[35px]"
+    >
       <div className="container flex lg:justify-start justify-center  gap-[clamp(30px,6vw,105px)] p-[clamp(20px,5vw,70px)] flex-wrap">
         <div className="recommend__img-box relative ">
           <img src={Avatar} alt="" />

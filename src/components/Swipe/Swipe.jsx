@@ -10,7 +10,7 @@ export default function Swipe({ arrProjects = [] }) {
   const secondRowProjects = arrProjects.slice(half);
 
   return (
-<section id="portfolios" className="w-full py-12 md:py-21 bg-[#171719] scroll-mt-24">
+<section id="portfolios" className="w-full scroll-mt-[108px] bg-[#171719] py-12 md:py-21">
   <div className="max-w-[1240px] mx-auto px-4 mb-8 w-full flex justify-center ">
     <div className="max-w-[440px]">
       <h3 className="uppercase text-[clamp(11px,1.5vw,14px)] text-gray-400 tracking-[clamp(1px,0.1vw,2px)]  mb-[0.5em]">Portfolios</h3>

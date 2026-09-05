@@ -16,7 +16,10 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section className="flex w-full flex-col items-center px-5 pt-[60px] pb-[50px] sm:px-8 md:pt-[100px] lg:pt-[120px]">
+    <section
+      id="services"
+      className="flex w-full scroll-mt-[108px] flex-col items-center px-5 pt-[60px] pb-[50px] sm:px-8 md:pt-[100px] lg:pt-[120px]"
+    >
       <div className="flex w-full max-w-[1160px] flex-col items-center">
         <div className="mb-[40px] max-w-[510px] text-center md:mb-[72px]">
           <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
@@ -38,11 +41,11 @@ export default function Services() {
               className="group relative z-0 flex w-full max-w-[369px] min-h-[260px] flex-col items-center px-4 pt-2 pb-[22px] text-center before:pointer-events-none before:absolute before:inset-x-0 before:top-3 before:bottom-0 before:-z-10 before:bg-black/20 before:content-[''] lg:max-w-none"
             >
               <span
-                className="pointer-events-none absolute top-24 bottom-0 left-0 w-4 bg-[repeating-linear-gradient(135deg,rgba(98,98,108,0.7)_0_2px,transparent_2px_7px)]"
+                className="pointer-events-none absolute "
                 aria-hidden="true"
               />
               <span
-                className="pointer-events-none absolute top-24 right-0 bottom-0 w-4 bg-[repeating-linear-gradient(135deg,rgba(98,98,108,0.7)_0_2px,transparent_2px_7px)]"
+                className="pointer-events-none absolute "
                 aria-hidden="true"
               />
 

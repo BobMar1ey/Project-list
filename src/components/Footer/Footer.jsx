@@ -9,7 +9,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="footer w-full flex justify-center">
+    <footer id="contact" className="footer flex w-full scroll-mt-[108px] justify-center">
       <div className="container w-full max-w-[1180px] px-[20px]">
         <div className="flex items-center justify-between  mb-[27px] flex-wrap flex-col md:flex-row gap-[20px] ">
           <div className="max-w-[289px] text-start">

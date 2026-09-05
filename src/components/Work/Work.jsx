@@ -12,7 +12,10 @@ const STEPS = [
 
 export default function Work() {
   return (
-    <section className="Work w-full overflow-x-clip px-5 sm:px-8 pt-[60px] md:pt-[100px] pb-[50px] flex flex-col items-center">
+    <section
+      id="about"
+      className="Work flex w-full scroll-mt-[108px] flex-col items-center overflow-x-clip px-5 pt-[60px] pb-[50px] sm:px-8 md:pt-[100px]"
+    >
       <div className="container flex w-full max-w-[1160px] flex-col items-center">
         <div className="mb-[36px] flex max-w-[510px] flex-col items-center text-center md:mb-[56px]">
           <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
