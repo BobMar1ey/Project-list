@@ -17,7 +17,7 @@ const MEMBERS = [
 
 export default function Team() {
   return (
-    <section className="flex w-full flex-col items-center bg-[#171719] px-5 py-12 sm:px-8 md:py-[100px]">
+    <section className="relative isolate z-0 flex w-full flex-col items-center bg-[#171719] px-5 py-12 sm:px-8 md:py-[100px]">
       <div className="flex w-full max-w-[1160px] flex-col items-center">
         <Reveal className="mb-10 max-w-[510px] text-center md:mb-16">
           <h3 className="mb-[6px] text-[14px] uppercase tracking-[2px]">
@@ -40,7 +40,7 @@ export default function Team() {
               delay={index * 120}
               className="group flex w-full max-w-[300px] flex-col rounded-xl p-2 transition-colors duration-500 hover:bg-[#111111]/40 sm:max-w-[241px]"
             >
-              <div className="relative mb-5 h-[215px] w-full">
+              <div className="relative isolate mb-5 h-[215px] w-full">
                 <img
                   src={rectangle}
                   alt=""
@@ -49,7 +49,7 @@ export default function Team() {
                 <img
                   src={member.img}
                   alt={member.title}
-                  className="relative z-10 h-full w-full rounded-2xl object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="relative z-[1] h-full w-full rounded-2xl object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="px-1 pt-1 text-start">

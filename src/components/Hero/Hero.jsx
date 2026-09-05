@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import "./Hero.css";
 import Reveal from "../Reveal/Reveal";
 import arrowIcon from "../../images/Hero/arrow.svg";
@@ -144,19 +145,20 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      {open && (
-        <div
-          className="hero__backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-        >
-          <form
-            className="hero__modal relative flex w-full max-w-[480px] flex-col gap-[14px] rounded-[18px] border border-white/10 bg-[#171719] px-7 py-8 shadow-2xl"
-            onClick={(event) => event.stopPropagation()}
-            onSubmit={(event) => {
-              event.preventDefault();
-              setOpen(false);
-            }}
+      {open &&
+        createPortal(
+          <div
+            className="hero__backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/75 px-4 backdrop-blur-md"
+            onClick={() => setOpen(false)}
           >
+            <form
+              className="hero__modal relative z-10 flex w-full max-w-[480px] flex-col gap-[14px] rounded-[18px] border border-white/10 bg-[#171719] px-7 py-8 shadow-2xl"
+              onClick={(event) => event.stopPropagation()}
+              onSubmit={(event) => {
+                event.preventDefault();
+                setOpen(false);
+              }}
+            >
             <button
               type="button"
               className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full text-[22px] leading-none text-white/60 hover:bg-white/10 hover:text-white"
@@ -212,9 +214,10 @@ export default function Hero() {
             >
               Send Request
             </button>
-          </form>
-        </div>
-      )}
+            </form>
+          </div>,
+          document.body,
+        )}
     </section>
   );
 }
