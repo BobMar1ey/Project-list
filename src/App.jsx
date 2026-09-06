@@ -8,13 +8,50 @@ import Recommend from "./components/Recommend/Recommend.jsx";
 import Team from "./components/Team/Team.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
-import proImg1 from "./assets/one.jpg";
-import proImg2 from "./assets/two.jpg";
+import webShopImg from "./assets/previews/web-shop.png";
+import fashionImg from "./assets/previews/fashion.png";
+import bigPageImg from "./assets/previews/big-page.png";
+import newTryImg from "./assets/previews/new-try.png";
+import firstProjectImg from "./assets/previews/first-project.png";
+import thirdProjectImg from "./assets/previews/third-project.png";
+
+const PAGES = "https://albert-braun.github.io";
+
+const PROJECTS = [
+  {
+    title: "Web Shop",
+    url: `${PAGES}/Web-shop/`,
+    img: webShopImg,
+  },
+  {
+    title: "FASCO Store",
+    url: `${PAGES}/Online-clothing-store/`,
+    img: fashionImg,
+  },
+  {
+    title: "Arik Portfolio",
+    url: `${PAGES}/big-page/`,
+    img: bigPageImg,
+  },
+  {
+    title: "Fapster Kit",
+    url: `${PAGES}/new-try/`,
+    img: newTryImg,
+  },
+  {
+    title: "Wishbone Partners",
+    url: `${PAGES}/first-project/`,
+    img: firstProjectImg,
+  },
+  {
+    title: "Aperture Studios",
+    url: `${PAGES}/third-project/`,
+    img: thirdProjectImg,
+  },
+];
 
 function App() {
-  const arrProjects = Array.from({ length: 20 }, (_, index) => ({
-    img: index % 2 === 0 ? proImg1 : proImg2,
-  }));
+  const arrProjects = Array.from({ length: 18 }, (_, index) => PROJECTS[index % PROJECTS.length]);
 
   return (
     <>

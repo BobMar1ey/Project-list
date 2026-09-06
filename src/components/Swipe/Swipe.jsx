@@ -24,7 +24,9 @@ export default function Swipe({ arrProjects = [] }) {
   <Reveal variant="fade" delay={160} className="relative w-full overflow-hidden pt-[32px] flex flex-col gap-[30px]">
     <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
       <a
-        href="#"
+        href="https://github.com/albert-braun?tab=repositories"
+        target="_blank"
+        rel="noopener noreferrer"
         className="pointer-events-auto px-6 py-3 rounded-full text-white font-medium text-[14px] bg-gradient-to-r from-[#194BFD] to-[#8B5CF6] hover:scale-105 transition-transform shadow-lg"
       >
         View all Projects
@@ -51,10 +53,15 @@ export default function Swipe({ arrProjects = [] }) {
       className="projects-swiper-top w-full"
     >
       {firstRowProjects.map((item, index) => (
-        <SwiperSlide key={index}>
-          <div className="w-full h-[269px] bg-[#16171d] rounded-[12px] border border-white/10 overflow-hidden opacity-50 hover:opacity-100 transition-opacity duration-300">
-            <img src={item.img} alt="" className="w-full h-full object-cover" />
-          </div>
+        <SwiperSlide key={`${item.url}-top-${index}`}>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full h-[269px] bg-[#16171d] rounded-[12px] border border-white/10 overflow-hidden opacity-50 hover:opacity-100 transition-opacity duration-300"
+          >
+            <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top" />
+          </a>
         </SwiperSlide>
       ))}
     </Swiper>
@@ -79,10 +86,15 @@ export default function Swipe({ arrProjects = [] }) {
       className="projects-swiper-bottom w-full"
     >
       {secondRowProjects.map((item, index) => (
-        <SwiperSlide key={index}>
-          <div className="w-full h-[269px] bg-[#16171d] rounded-[12px] border border-white/10 overflow-hidden opacity-50 hover:opacity-100 transition-opacity duration-300">
-            <img src={item.img} alt="" className="w-full h-full object-cover" />
-          </div>
+        <SwiperSlide key={`${item.url}-bottom-${index}`}>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full h-[269px] bg-[#16171d] rounded-[12px] border border-white/10 overflow-hidden opacity-50 hover:opacity-100 transition-opacity duration-300"
+          >
+            <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top" />
+          </a>
         </SwiperSlide>
       ))}
     </Swiper>

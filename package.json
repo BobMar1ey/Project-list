@@ -1,6 +1,7 @@
 {
   "name": "segundos",
   "private": true,
+  "homepage": "https://albert-braun.github.io/Project-list",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
