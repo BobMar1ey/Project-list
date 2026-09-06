@@ -9,10 +9,10 @@ import plane from "../../images/Team/plane.png";
 import contactBg from "../../images/Team/bg.webp";
 
 const MEMBERS = [
-  { img: one, title: "UI & UX Design" },
-  { img: two, title: "UI & UX Design" },
-  { img: three, title: "UI & UX Design" },
-  { img: four, title: "UI & UX Design" },
+  { img: one, title: "Frontend Developer" },
+  { img: two, title: "Frontend Developer" },
+  { img: three, title: "Frontend Developer" },
+  { img: four, title: "Frontend Developer" },
 ];
 
 export default function Team() {

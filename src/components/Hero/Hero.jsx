@@ -46,7 +46,7 @@ export default function Hero() {
 
           <Reveal delay={140}>
             <p className="mx-auto max-w-[470px] text-[clamp(14px,1.6vw,16px)] leading-7 text-white/70 lg:mx-0">
-              I design and build fast, accessible interfaces — from landing pages
+              I develop and build fast, accessible interfaces — from landing pages
               to product UI. Let&apos;s turn your idea into a polished website.
             </p>
           </Reveal>

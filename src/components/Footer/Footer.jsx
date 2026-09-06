@@ -46,7 +46,7 @@ export default function Footer() {
               className="mb-5 inline-flex items-center gap-2 text-[16px] font-bold text-white"
             >
               <img src={logo} alt="" className="h-6 w-6" />
-              designer
+              frontend developer
             </a>
             <p className="mb-5 max-w-[320px] text-[14px] leading-5">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex

@@ -11,7 +11,7 @@ const SERVICES = [
   { title: "Creative solutions", img: Two },
   { title: "Marketing solutions", img: Three },
   { title: "Business analytics", img: Four },
-  { title: "UI & UX Design", img: Five },
+  { title: "Frontend Development", img: Five },
   { title: "Photography", img: Six },
 ];
 

@@ -65,7 +65,7 @@ export default function Header() {
       <div className="flex justify-between h-[68px] items-center">
         <div className="flex gap-[8px]">
           <img className="h-[24px] w-[24px]" src={Logo} alt="" />
-          <span>designer</span>
+          <span>frontend developer</span>
         </div>
         <nav
           className={`flex md:max-w-[483px] w-full ${burger ? "active" : ""} navbar`}
